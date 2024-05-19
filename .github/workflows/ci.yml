@@ -16,7 +16,28 @@ on:
       - '*.md'
 
 jobs:
-  test:
-    uses: fastify/workflows/.github/workflows/plugins-ci.yml@v3
-    with:
-      license-check: true
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: starting postgres...
+        run: docker compose -f docker-compose-ci.yml  up -d
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install
+      - run: npm test
+
+      - name: stopping postgres...
+        if: always()
+        run: docker compose -f docker-compose-ci.yml down -v
