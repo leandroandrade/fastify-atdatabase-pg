@@ -10,6 +10,9 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# Clinic
+.clinic
+
 # Runtime data
 pids
 *.pid
@@ -128,3 +131,22 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Vim swap files
+*.swp
+
+# macOS files
+.DS_Store
+
+# lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+# editor files
+.vscode
+.idea
+
+# tap files
+.tap/
