@@ -47,7 +47,7 @@ async function fastifyAtdatabasePg (fastify, options) {
 }
 
 module.exports = fp(fastifyAtdatabasePg, {
-  fastify: '4.x',
+  fastify: '>=4.x',
   name: 'fastify-atdatabase-pg'
 })
 
