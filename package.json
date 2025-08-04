@@ -4,14 +4,10 @@
   "description": "This module provides a way to use postgressql database.",
   "main": "index.js",
   "scripts": {
-    "coverage": "npm run unit -- --coverage-report=lcovonly",
     "lint": "standard | snazzy",
     "lint:fix": "standard --fix | snazzy",
     "test": "npm run lint && npm run unit",
-    "test:ci": "npm run lint && npm run coverage",
-    "unit": "tap -J \"test/*.test.js\"",
-    "unit:report": "npm run unit -- --coverage-report=html",
-    "unit:verbose": "npm run unit -- -Rspec"
+    "unit": "node --test --test-concurrency=1 ./test/**/*.test.js"
   },
   "keywords": [
     "postgres",
@@ -33,12 +29,11 @@
   "dependencies": {
     "@databases/pg": "^5.5.0",
     "@databases/pg-bulk": "^1.2.0",
-    "fastify-plugin": "^4.5.1"
+    "fastify-plugin": "^5.0.1"
   },
   "devDependencies": {
-    "fastify": "^4.27.0",
+    "fastify": "^5.4.0",
     "snazzy": "^9.0.0",
-    "standard": "^17.1.0",
-    "tap": "^16.3.10"
+    "standard": "^17.1.2"
   }
 }
