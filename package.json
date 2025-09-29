@@ -1,6 +1,6 @@
 {
   "name": "fastify-atdatabase-pg",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "This module provides a way to use postgressql database.",
   "main": "index.js",
   "scripts": {
